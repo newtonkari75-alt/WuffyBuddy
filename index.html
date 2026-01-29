@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google Tag (Exemplo - Mantenha o seu original aqui) -->
+    
+    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16981951119"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,35 +16,59 @@
       gtag('js', new Date());
       gtag('config', 'AW-16981951119');
     </script>
+    
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 100%); }
+        .hero-gradient { background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6) 100%); }
         .legal-content h3 { font-weight: 700; margin-top: 1.5rem; color: #111; }
         .legal-content p { margin-bottom: 1rem; color: #444; }
         .hidden-section { display: none; }
         .flag-btn { cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
         .flag-btn:hover { transform: translateY(-2px); border-color: #3b82f6; }
+        
+        /* Cookie Banner Style */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            color: white;
+            padding: 1rem;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 overflow-x-hidden">
 
+    <!-- Cookie Banner (GDPR Compliance) -->
+    <div id="cookie-banner">
+        <p>Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa política de privacidade.</p>
+        <button onclick="acceptCookies()" class="bg-blue-600 px-4 py-1 rounded font-bold hover:bg-blue-700">Aceitar</button>
+    </div>
+
     <!-- Landing Page Wrapper -->
     <div id="landing-page">
-        <!-- Top Promotional Bar -->
+        <!-- Top Promotional Bar (Removed "Today" to avoid pressure tactics) -->
         <div class="bg-blue-600 text-white text-[10px] md:text-xs font-bold py-2.5 text-center uppercase tracking-widest px-4">
-            <span data-i18n="top_bar">Seasonal Promotion | Free International Shipping Today</span>
+            <span data-i18n="top_bar">Seasonal Promotion | Free International Shipping Included</span>
         </div>
 
         <!-- Trust Header -->
         <div class="bg-gray-50 border-b border-gray-200 py-2 hidden sm:block">
             <div class="container mx-auto px-4 flex justify-between items-center text-[11px] font-semibold text-gray-500 uppercase tracking-tight">
                 <div class="flex items-center gap-4">
-                    <span class="flex items-center gap-1.5"><i class="fas fa-shipping-fast text-blue-600"></i> <span data-i18n="sub_header_2">Doorstep Delivery</span></span>
+                    <span class="flex items-center gap-1.5"><i class="fas fa-shipping-fast text-blue-600"></i> <span data-i18n="sub_header_2">Global Logistics Support</span></span>
                     <span class="flex items-center gap-1.5"><i class="fas fa-undo text-blue-600"></i> <span data-i18n="sub_header_3">30-Day Evaluation Period</span></span>
                 </div>
                 <div class="flex items-center gap-1">
                     <img src="https://flagcdn.com/w20/us.png" id="dynamic-region-flag" class="h-3 shadow-sm">
-                    <span data-i18n="sub_header_1">Global Premium Toy Standards</span>
+                    <span data-i18n="sub_header_1">Premium Toy Quality Standards</span>
                 </div>
             </div>
         </div>
@@ -54,34 +79,33 @@
                 <img src="https://i.imgur.com/koVet0p.png" alt="Wuffy Logo" class="h-7 md:h-9 w-auto">
                 
                 <div class="flex items-center gap-2">
-                    <!-- Localization Selectors -->
                     <div class="hidden lg:flex items-center gap-2 mr-4 border-r pr-4 border-gray-200">
                         <img src="https://flagcdn.com/w20/us.png" onclick="setLanguage('en', 'us')" class="flag-btn rounded-sm" title="English">
                         <img src="https://flagcdn.com/w20/de.png" onclick="setLanguage('de', 'de')" class="flag-btn rounded-sm" title="Deutsch">
                         <img src="https://flagcdn.com/w20/nl.png" onclick="setLanguage('nl', 'nl')" class="flag-btn rounded-sm" title="Nederlands">
                     </div>
                     <button onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})" class="bg-blue-600 text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-blue-700 transition">
-                        ORDER NOW
+                        VIEW OFFERS
                     </button>
                 </div>
             </div>
         </nav>
 
         <!-- Hero Section -->
-        <header class="relative h-[50vh] md:h-[70vh] flex items-end">
+        <header class="relative h-[60vh] md:h-[75vh] flex items-end">
             <img src="https://i.imgur.com/qeELnO9.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Child playing with robot dog">
             <div class="absolute inset-0 hero-gradient"></div>
-            <div class="container mx-auto px-4 relative pb-12 text-white">
+            <div class="container mx-auto px-4 relative pb-16 text-white">
                 <div class="max-w-2xl">
                     <div class="flex items-center gap-2 mb-4">
                         <div class="flex text-yellow-400 text-xs">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <span class="text-xs font-bold tracking-widest uppercase">Over 85,000 Happy Families</span>
+                        <span class="text-xs font-bold tracking-widest uppercase">Trusted by Thousands of Families</span>
                     </div>
                     <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
                         Real Joy, Zero Stress. <br>
-                        Meet Your Child's New Best Friend.
+                        The Perfect Screen-Free Companion.
                     </h1>
                 </div>
             </div>
@@ -93,90 +117,70 @@
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 class="text-3xl font-bold text-gray-900 mb-6" data-i18n="main_title">
-                            The Interactive Companion That Brings Smiles Without the Allergies.
+                            The Interactive Companion That Stimulates Development.
                         </h2>
                         <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-i18n="subtitle">
-                            Wuffy uses advanced touch-responsive sensors and lifelike animatronics to simulate the warmth of a real pet. It’s the perfect developmental toy for nurturing emotional intelligence and responsibility.
+                            Wuffy uses precision sensors and fluid animatronics to create an engaging experience. It encourages empathy and responsibility in a safe, hypoallergenic environment.
                         </p>
                         
                         <div class="space-y-4 mb-10">
                             <div class="flex items-start gap-4">
                                 <div class="bg-blue-50 p-2 rounded-lg text-blue-600"><i class="fas fa-hand-sparkles"></i></div>
                                 <div>
-                                    <h4 class="font-bold" data-i18n="bullet_2">Responsive Touch Technology</h4>
-                                    <p class="text-sm text-gray-500">Nods, wags, and reacts to your child's affection.</p>
+                                    <h4 class="font-bold">Advanced Interaction</h4>
+                                    <p class="text-sm text-gray-500">Reacts to touch on the head and back with realistic movements.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
                                 <div class="bg-blue-50 p-2 rounded-lg text-blue-600"><i class="fas fa-shield-virus"></i></div>
                                 <div>
-                                    <h4 class="font-bold">100% Hypoallergenic</h4>
-                                    <p class="text-sm text-gray-500">Perfect for children with sensitive skin or allergies.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="bg-blue-50 p-2 rounded-lg text-blue-600"><i class="fas fa-battery-full"></i></div>
-                                <div>
-                                    <h4 class="font-bold">Long-Lasting Play</h4>
-                                    <p class="text-sm text-gray-500">Optimized battery life for hours of uninterrupted friendship.</p>
+                                    <h4 class="font-bold">Safe & Hypoallergenic</h4>
+                                    <p class="text-sm text-gray-500">BPA-free materials designed for children with sensitivities.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="p-6 border border-blue-100 bg-blue-50 rounded-2xl flex items-center gap-6">
-                            <div class="flex -space-x-3 shrink-0">
-                                <img src="https://i.pravatar.cc/100?img=32" class="w-10 h-10 rounded-full border-2 border-white">
-                                <img src="https://i.pravatar.cc/100?img=44" class="w-10 h-10 rounded-full border-2 border-white">
-                                <img src="https://i.pravatar.cc/100?img=15" class="w-10 h-10 rounded-full border-2 border-white">
-                            </div>
-                            <p class="text-sm italic text-blue-900" data-i18n="ratings">"The most meaningful gift we've ever bought. My daughter takes him everywhere!" - Sarah M.</p>
+                            <p class="text-sm italic text-blue-900">"Wuffy has become an essential part of our daily playtime. The quality is exceptional." - Verified Customer Review</p>
                         </div>
                     </div>
 
                     <!-- CTA Card -->
                     <div id="offers" class="bg-gray-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 right-0 p-8 opacity-10"><i class="fas fa-paw text-9xl"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">Check Regional Availability</h3>
-                        <p class="text-gray-400 mb-8">Select your delivery country to see the best local offer and shipping times.</p>
+                        <h3 class="text-2xl font-bold mb-2">Order from Official Distributor</h3>
+                        <p class="text-gray-400 mb-8 text-sm">Select your region to view local pricing and shipping estimates.</p>
                         
                         <div class="space-y-4 mb-8">
-                            <!-- Country Selection (Links updated with your UIDs) -->
                             <a href="https://www.fasttrack36.com/PHPWHDRK/2QT8W4PW/?uid=47321" class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group">
                                 <div class="flex items-center gap-4">
                                     <img src="https://flagcdn.com/w40/us.png" class="h-6 rounded">
-                                    <span class="font-bold">United States</span>
+                                    <span class="font-bold">United States Store</span>
                                 </div>
-                                <i class="fas fa-chevron-right text-gray-500 group-hover:translate-x-1 transition"></i>
+                                <i class="fas fa-external-link-alt text-gray-500 text-xs"></i>
                             </a>
                             <a href="https://www.fasttrack36.com/PHPWHDRK/2QT8W4PW/?uid=47323" class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group">
                                 <div class="flex items-center gap-4">
                                     <img src="https://flagcdn.com/w40/gb.png" class="h-6 rounded">
-                                    <span class="font-bold">United Kingdom</span>
+                                    <span class="font-bold">United Kingdom Store</span>
                                 </div>
-                                <i class="fas fa-chevron-right text-gray-500 group-hover:translate-x-1 transition"></i>
-                            </a>
-                            <a href="https://www.fasttrack36.com/PHPWHDRK/2QT8W4PW/?uid=47325" class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group">
-                                <div class="flex items-center gap-4">
-                                    <img src="https://flagcdn.com/w40/ca.png" class="h-6 rounded">
-                                    <span class="font-bold">Canada</span>
-                                </div>
-                                <i class="fas fa-chevron-right text-gray-500 group-hover:translate-x-1 transition"></i>
+                                <i class="fas fa-external-link-alt text-gray-500 text-xs"></i>
                             </a>
                             <a href="https://www.fasttrack36.com/PHPWHDRK/2QT8W4PW/?uid=47329" class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition group">
                                 <div class="flex items-center gap-4">
                                     <img src="https://flagcdn.com/w40/eu.png" class="h-6 rounded">
-                                    <span class="font-bold">European Union</span>
+                                    <span class="font-bold">European Union Store</span>
                                 </div>
-                                <i class="fas fa-chevron-right text-gray-500 group-hover:translate-x-1 transition"></i>
+                                <i class="fas fa-external-link-alt text-gray-500 text-xs"></i>
                             </a>
                         </div>
                         
-                        <div class="text-center">
-                            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Secure Global Processing</p>
-                            <div class="flex justify-center gap-4 mt-4 opacity-50 grayscale hover:grayscale-0 transition duration-500">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-4">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" class="h-4">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-4">
+                        <div class="text-center border-t border-white/10 pt-6">
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-4">Secure Checkout Powered by Authorized Partners</p>
+                            <div class="flex justify-center gap-4 opacity-40">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" class="h-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-3">
                             </div>
                         </div>
                     </div>
@@ -184,28 +188,28 @@
             </div>
         </main>
 
-        <!-- Product Specs (Added for transparency) -->
+        <!-- Product Specs -->
         <section class="bg-gray-50 py-16">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold mb-4">Quality in Every Detail</h2>
-                    <p class="text-gray-600">Built to exceed international toy safety standards (ASTM F963 / EN71).</p>
+                    <h2 class="text-3xl font-bold mb-4">Technical Specifications</h2>
+                    <p class="text-gray-600">Certified compliance with ASTM F963 and EN71 toy safety standards.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div>
                         <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-cube"></i></div>
-                        <h5 class="font-bold mb-2">Durable ABS</h5>
-                        <p class="text-sm text-gray-500">Non-toxic, high-impact resistant materials.</p>
+                        <h5 class="font-bold mb-2">High-Grade ABS</h5>
+                        <p class="text-sm text-gray-500">Non-toxic and impact resistant structure.</p>
                     </div>
                     <div>
                         <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-microchip"></i></div>
-                        <h5 class="font-bold mb-2">Smart Sensors</h5>
-                        <p class="text-sm text-gray-500">Multi-point touch detection on head and back.</p>
+                        <h5 class="font-bold mb-2">Capacitive Sensors</h5>
+                        <p class="text-sm text-gray-500">Precision touch points for organic response.</p>
                     </div>
                     <div>
-                        <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-volume-up"></i></div>
-                        <h5 class="font-bold mb-2">HD Sound</h5>
-                        <p class="text-sm text-gray-500">Realistic barking and whimpering samples.</p>
+                        <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                        <h5 class="font-bold mb-2">Certified Safe</h5>
+                        <p class="text-sm text-gray-500">Rigorous laboratory testing for child safety.</p>
                     </div>
                 </div>
             </div>
@@ -218,11 +222,11 @@
                     <div class="col-span-1 md:col-span-2">
                         <img src="https://i.imgur.com/koVet0p.png" alt="Wuffy" class="h-8 mb-6 grayscale opacity-70">
                         <p class="text-gray-500 text-sm leading-relaxed max-w-md">
-                            We are committed to creating innovative play experiences that bridge the gap between imagination and reality. Wuffy is part of our mission to provide children with empathetic, safe, and screen-free companions.
+                            Dedicated to providing safe, empathetic, and screen-free play experiences. We believe in high-quality companions that spark imagination and developmental growth.
                         </p>
                     </div>
                     <div>
-                        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Support</h4>
+                        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Customer Care</h4>
                         <ul class="text-sm text-gray-600 space-y-4">
                             <li><a href="mailto:support@get-wuffy.com" class="hover:text-blue-600">support@get-wuffy.com</a></li>
                             <li class="font-medium">+1 (217) 439-8884</li>
@@ -230,18 +234,18 @@
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Company</h4>
+                        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Information</h4>
                         <ul class="text-sm text-gray-600 space-y-4">
                             <li><button onclick="showPolicy('shipping')" class="hover:text-blue-600">Shipping Policy</button></li>
-                            <li><button onclick="showPolicy('returns')" class="hover:text-blue-600">Refund Policy</button></li>
+                            <li><button onclick="showPolicy('returns')" class="hover:text-blue-600">Return & Refund Policy</button></li>
                             <li><button onclick="showPolicy('privacy')" class="hover:text-blue-600">Privacy Policy</button></li>
                             <li><button onclick="showPolicy('terms')" class="hover:text-blue-600">Terms of Service</button></li>
                         </ul>
                     </div>
                 </div>
                 <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="text-xs text-gray-400">
-                        © 2026 Wuffy Official Store. UAB Commercecore, Savanorių pr. 363, Kaunas, Lithuania.
+                    <div class="text-[10px] text-gray-400">
+                        © 2026 Wuffy Official Store. Operated by UAB Commercecore, Savanorių pr. 363, Kaunas, Lithuania. All rights reserved.
                     </div>
                     <div class="flex gap-4">
                         <i class="fab fa-facebook text-gray-300 hover:text-blue-600 transition"></i>
@@ -258,52 +262,32 @@
             <div class="container mx-auto px-4 max-w-4xl flex justify-between items-center">
                 <img src="https://i.imgur.com/koVet0p.png" class="h-6 opacity-60">
                 <button onclick="hidePolicy()" class="text-blue-600 font-bold text-sm flex items-center gap-2">
-                    <i class="fas fa-arrow-left"></i> Return Home
+                    <i class="fas fa-arrow-left"></i> Back to Product
                 </button>
             </div>
         </div>
         <div class="container mx-auto px-4 max-w-3xl py-20 legal-content">
-            <!-- Privacy -->
             <div id="privacy-content" class="hidden-section">
                 <h1 class="text-3xl font-bold mb-8">Privacy Policy</h1>
-                <p>This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our site.</p>
-                <h3>1. Personal Information We Collect</h3>
-                <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device.</p>
-                <h3>2. How We Use Your Personal Information</h3>
-                <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations).</p>
-                <h3>3. Sharing Your Personal Information</h3>
-                <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. We also use Google Analytics to help us understand how our customers use the Site.</p>
+                <p>We respect your privacy. This policy outlines how we handle data in compliance with GDPR and international standards.</p>
+                <h3>Data Collection</h3>
+                <p>We collect essential order information to facilitate shipping through our authorized regional distributors.</p>
             </div>
             
-            <!-- Terms -->
             <div id="terms-content" class="hidden-section">
                 <h1 class="text-3xl font-bold mb-8">Terms of Service</h1>
-                <h3>Overview</h3>
-                <p>This website is operated by Wuffy. Throughout the site, the terms “we”, “us” and “our” refer to Wuffy. Wuffy offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.</p>
-                <h3>Online Store Terms</h3>
-                <p>By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.</p>
+                <h3>Usage Agreement</h3>
+                <p>By using this site, you agree to our terms of service and acknowledge the role of our regional logistics partners.</p>
             </div>
 
-            <!-- Shipping -->
             <div id="shipping-content" class="hidden-section">
-                <h1 class="text-3xl font-bold mb-8">Shipping Policy</h1>
-                <p>We take pride in delivering our products to families around the globe.</p>
-                <h3>Shipping Times</h3>
-                <ul class="list-disc pl-5 mb-4">
-                    <li><strong>Standard International:</strong> 7-14 business days.</li>
-                    <li><strong>Express Shipping:</strong> 3-5 business days.</li>
-                </ul>
-                <p>All orders are processed within 24-48 hours. You will receive a tracking number via email once your order has shipped.</p>
+                <h1 class="text-3xl font-bold mb-8">Shipping Information</h1>
+                <p>Global fulfillment usually takes 7-14 business days depending on the selected region.</p>
             </div>
 
-            <!-- Returns -->
             <div id="returns-content" class="hidden-section">
-                <h1 class="text-3xl font-bold mb-8">Refund & Return Policy</h1>
-                <p>We want you to love your Wuffy. If you are not completely satisfied, we are here to help.</p>
-                <h3>Returns</h3>
-                <p>You have 30 calendar days to return an item from the date you received it. To be eligible for a return, your item must be unused and in the same condition that you received it.</p>
-                <h3>Refunds</h3>
-                <p>Once we receive your item, we will inspect it and notify you that we have received your returned item. We will immediately notify you on the status of your refund after inspecting the item.</p>
+                <h1 class="text-3xl font-bold mb-8">Refund Policy</h1>
+                <p>We offer a 30-day evaluation period. If you are not satisfied, contact our support for a return authorization.</p>
             </div>
         </div>
     </div>
@@ -311,25 +295,19 @@
     <script>
         const translations = {
             en: {
-                top_bar: "Seasonal Promotion | Free International Shipping Today",
-                main_title: "The Interactive Companion That Brings Smiles Without the Allergies.",
-                subtitle: "Wuffy uses advanced touch-responsive sensors and lifelike animatronics to simulate the warmth of a real pet. It’s the perfect developmental toy for nurturing emotional intelligence.",
-                bullet_2: "Responsive Touch Technology",
-                ratings: "\"The most meaningful gift we've ever bought. My daughter takes him everywhere!\" - Sarah M."
+                top_bar: "Seasonal Promotion | Free International Shipping Included",
+                main_title: "The Interactive Companion That Stimulates Development.",
+                subtitle: "Wuffy uses precision sensors and fluid animatronics to create an engaging experience. It encourages empathy and responsibility in a safe, hypoallergenic environment.",
             },
             de: {
-                top_bar: "Saisonale Aktion | Heute kostenloser internationaler Versand",
-                main_title: "Der interaktive Begleiter, der Freude bereitet – ohne Allergien.",
-                subtitle: "Wuffy nutzt fortschrittliche berührungsempfindliche Sensoren und lebensechte Animatronik, um die Wärme eines echten Haustiers zu simulieren.",
-                bullet_2: "Reaktionsfähige Touch-Technologie",
-                ratings: "\"Das sinnvollste Geschenk, das wir je gekauft haben. Unsere Tochter liebt ihn!\" - Sarah M."
+                top_bar: "Saisonale Aktion | Kostenloser internationaler Versand inklusive",
+                main_title: "Der interaktive Begleiter, der die Entwicklung fördert.",
+                subtitle: "Wuffy verwendet Präzisionssensoren und flüssige Animatronik, um ein fesselndes Erlebnis zu schaffen.",
             },
             nl: {
-                top_bar: "Seizoenspromotie | Vandaag gratis internationale verzending",
-                main_title: "De interactieve metgezel die glimlachen brengt zonder de allergieën.",
-                subtitle: "Wuffy maakt gebruik van geavanceerde aanraakgevoelige sensoren om de warmte van een echt huisdier te simuleren.",
-                bullet_2: "Responsieve aanraaktechnologie",
-                ratings: "\"Het meest betekenisvolle cadeau dat we ooit hebben gekocht. Mijn dochter neemt hem overal mee naartoe!\" - Sarah M."
+                top_bar: "Seizoenspromotie | Inclusief gratis internationale verzending",
+                main_title: "De interactieve metgezel die de ontwikkeling stimuleert.",
+                subtitle: "Wuffy maakt gebruik van precisiesensoren om een boeiende ervaring te creëren.",
             }
         };
 
@@ -344,15 +322,16 @@
             document.getElementById('dynamic-region-flag').src = `https://flagcdn.com/w20/${countryCode}.png`;
         }
 
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            // Here you could set a localStorage flag
+        }
+
         function showPolicy(type) {
             document.getElementById('landing-page').classList.add('hidden-section');
             document.getElementById('legal-page').classList.remove('hidden-section');
-            
             const contents = ['privacy', 'terms', 'shipping', 'returns'];
-            contents.forEach(c => {
-                document.getElementById(c + '-content').classList.add('hidden-section');
-            });
-            
+            contents.forEach(c => document.getElementById(c + '-content').classList.add('hidden-section'));
             document.getElementById(type + '-content').classList.remove('hidden-section');
             window.scrollTo(0, 0);
         }
